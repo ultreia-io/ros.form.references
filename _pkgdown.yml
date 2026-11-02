@@ -1,0 +1,24 @@
+url: https://ultreia-io.github.io/ros.form.references/
+template:
+  bootstrap: 5
+  light-switch: true
+home:
+  sidebar: false
+news:
+  cran_dates: false
+navbar:
+  structure:
+    left: [articles, reference, news]
+    right: [search, github, lightswitch]
+reference:
+  - title: Package
+    contents: [ros.form.references-package]
+
+footer:
+  structure:
+    left: [company, copyright, license]
+    right: built_with
+  components:
+    company: "[ultreia.io](https://ultreia.io/)"
+    copyright: "· © 2026"
+    license: "· [License: GPL-3](https://github.com/ultreia-io/ros.form.references/blob/main/LICENSE)"

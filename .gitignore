@@ -1,0 +1,9 @@
+**/.Rproj.user/
+**/.Rhistory
+**/.RData
+**/build/
+**/docs/
+**/*.tar.gz
+**/*.Rcheck/
+.idea/**/*
+/output/
