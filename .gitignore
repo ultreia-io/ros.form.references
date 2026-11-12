@@ -1,0 +1,11 @@
+**/.Rproj.user/
+**/.Rhistory
+**/.RData
+**/build/
+**/docs/
+**/*.tar.gz
+**/*.Rcheck/
+.idea/**/*
+
+/pkgdown/assets/
+/coverage.xml

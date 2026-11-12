@@ -1,0 +1,72 @@
+---
+title: "Getting started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## About this guide
+
+Load lookup settings, resolve a form model and prepare shared reference snapshots.
+
+## Load a form model
+
+```{r}
+# Load the selected ROS form model.
+form_model_definition <- ros.form.model::ros_form(
+  name = ros.form.model::ROS_FORM_LL,
+  version = ros.form.model::ROS_FORM_VERSION_4_2_0)
+```
+
+## Load reference configuration
+
+```{r}
+# Read the bundled catalogue sources and lookup settings without downloading data.
+reference_configuration <- ros.form.references::ros_lookup_configuration()
+# Resolve the model bindings while keeping the original form model unchanged.
+reference_resolved_form_model <- ros.form.references::resolve_ros_lookups(
+  form_model_definition, reference_configuration)
+# Inspect the configured catalogues.
+names(reference_configuration$catalogues)
+```
+
+## Prepare snapshots
+
+Copy the configuration and adjust the sources for your deployment.
+
+For private catalogues, use the complete private example and set `ROS_REGISTRY_PASSWORD` in your environment.
+
+These commands require access to the configured catalogues.
+
+```{r eval=FALSE}
+# Read the deployment configuration, including credentials from the environment.
+reference_configuration <- ros.form.references::ros_lookup_configuration("references.private.example.yaml")
+# Download and verify the tables selected by the form model.
+reference_snapshot_directory <- ros.form.references::prepare_ros_reference_snapshots(
+  "references",
+  reference_configuration$catalogues$code_lists$source,
+  reference_configuration$catalogues$registries$source,
+  models = list(form_model_definition),
+  configuration = reference_configuration)
+# Load the saved rows, aliases and lookup settings for consumers.
+reference_snapshots <- ros.form.references::read_ros_references(
+  reference_snapshot_directory, list(form_model_definition))
+```
+
+Snapshots contain catalogue CSV directories and `references.yaml` with frozen lookup settings.
+
+Credentials are never written into the snapshot configuration.
+
+## Configuration downloads
+
+```{r results='asis', echo=FALSE}
+if (identical(Sys.getenv("IN_PKGDOWN"), "true")) {
+  cat("* [Catalogue configuration](../references.yaml)\n",
+      "* [Private catalogue example](../references.private.example.yaml)\n")
+} else {
+  cat("Configurations are installed in the package directory as ",
+      "`references.yaml` and `references.private.example.yaml`.\n")
+}
+```

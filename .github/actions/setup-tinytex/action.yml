@@ -1,0 +1,54 @@
+name: Cached TinyTeX
+description: Reuse TinyTeX with the fonts and index generator required by R manuals
+runs:
+  using: composite
+  steps:
+    - name: Locate TinyTeX cache
+      id: location
+      shell: Rscript {0}
+      run: |
+        # Keep Windows installation and cache files on the runner temporary drive.
+        tex_directory <- switch(Sys.info()[["sysname"]],
+          Windows = file.path(Sys.getenv("RUNNER_TEMP"), "TinyTeX"),
+          Darwin = path.expand("~/Library/TinyTeX"), path.expand("~/.TinyTeX"))
+        # Separate caches by platform, architecture and installation location.
+        tex_identity <- gsub("[^A-Za-z0-9.-]", "_", paste(Sys.info()[["sysname"]],
+          Sys.info()[["machine"]], tex_directory, sep = "-"))
+        cat(paste0("path=", tex_directory, "\nidentity=", tex_identity,
+          "\nweek=", format(Sys.Date(), "%G-%V"), "\n"),
+          file = Sys.getenv("GITHUB_OUTPUT"), append = TRUE)
+    - name: Cache TinyTeX installation
+      id: tex-cache
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+      with:
+        path: ${{ steps.location.outputs.path }}
+        key: tinytex-${{ steps.location.outputs.identity }}-v1-${{ steps.location.outputs.week }}
+    - uses: r-lib/actions/setup-tinytex@v2.14.0
+      if: steps.tex-cache.outputs.cache-hit != 'true' && runner.os != 'Windows'
+    - name: Install TinyTeX on the Windows temporary drive
+      uses: r-lib/actions/setup-tinytex@v2.14.0
+      if: steps.tex-cache.outputs.cache-hit != 'true' && runner.os == 'Windows'
+      env:
+        # The installer and setup action must agree on the installation parent.
+        APPDATA: ${{ runner.temp }}
+        TINYTEX_DIR: ${{ runner.temp }}
+    - name: Restore TinyTeX executable path
+      shell: Rscript {0}
+      env:
+        TINYTEX_CACHE_DIRECTORY: ${{ steps.location.outputs.path }}
+      run: |
+        # setup-tinytex normally adds this path; restore it for cache hits too.
+        tex_bin_directory <- list.dirs(file.path(Sys.getenv("TINYTEX_CACHE_DIRECTORY"), "bin"),
+          recursive = FALSE, full.names = TRUE)
+        cat(paste0(tex_bin_directory[[1L]], "\n"), file = Sys.getenv("GITHUB_PATH"), append = TRUE)
+    - name: Install manual fonts and index generator
+      if: steps.tex-cache.outputs.cache-hit != 'true' && runner.os != 'Windows'
+      shell: bash
+      run: tlmgr install courier makeindex
+    - name: Install manual fonts and index generator on Windows
+      if: steps.tex-cache.outputs.cache-hit != 'true' && runner.os == 'Windows'
+      shell: pwsh
+      env:
+        # Use TeX Live compression tools instead of unrelated executables on PATH.
+        TEXLIVE_PREFER_OWN: "1"
+      run: tlmgr install courier makeindex

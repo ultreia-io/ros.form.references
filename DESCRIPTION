@@ -1,0 +1,28 @@
+Package: ros.form.references
+Title: Shared Reference Data for Regional Observer Scheme Forms
+Version: 0.1.0
+Authors@R:
+    person("Tony", "Chemit", role = c("aut", "cre", "cph"),
+           email = "dev@tchemit.fr",
+           comment = c(ORCID = "0009-0007-1802-5256", URL = "https://ultreia.io"))
+Description: Provides shared reference snapshots and aliases used by
+    Regional Observer Scheme exporters and validators. Reference selection is
+    based on versioned form models, with generic catalogue access supplied by
+    form.references.
+License: GPL-3
+URL: https://ultreia-io.github.io/ros.form.references/,
+    https://github.com/ultreia-io/ros.form.references
+BugReports: https://github.com/ultreia-io/ros.form.references/issues
+Encoding: UTF-8
+Depends: R (>= 4.1.0)
+Imports: form.references (== 0.3.0),
+    ros.form.model (== 0.4.0), digest, yaml
+Suggests: form.model (>= 0.6.2), knitr, pkgload, rmarkdown, testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+Config/Needs/coverage: covr, xml2
+Roxygen: list(markdown = TRUE)
+Config/Needs/website: pkgdown
+Config/roxygen2/version: 8.1.1
+Remotes: ultreia-io/form.references@develop,
+    ultreia-io/ros.form.model@develop

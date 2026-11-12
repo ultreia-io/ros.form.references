@@ -1,0 +1,34 @@
+---
+title: "Terminology"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Terminology}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Main concepts
+
+| Term                | Meaning                                                         |
+| ------------------- | --------------------------------------------------------------- |
+| Catalogue           | An inventory of reference tables and their versions.            |
+| Reference table     | Rows of values used by consumers of a form.                      |
+| Form model          | A definition selecting the tables and lookup columns it needs.  |
+| Consumer            | An exporter, importer or validator using these references.       |
+
+## Lookup configuration
+
+| Term                | Meaning                                                         |
+| ------------------- | --------------------------------------------------------------- |
+| Lookup              | A table column and its matching settings.                       |
+| Alias               | An alternate submitted value mapped to a canonical value.       |
+| Matching policy     | Exact text or order-independent name matching and case handling.|
+
+## Shared snapshots
+
+| Term                | Meaning                                                         |
+| ------------------- | --------------------------------------------------------------- |
+| Reference snapshot  | Saved table data and lookup settings for reuse by consumers.     |
+| Provenance          | Source path, checksum and availability recorded for a table.     |
+
+Code lists and registries are ROS catalogues using the same generic retrieval and lookup mechanisms.

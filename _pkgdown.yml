@@ -1,0 +1,55 @@
+url: https://ultreia-io.github.io/ros.form.references/
+template:
+  bootstrap: 5
+  light-switch: true
+home:
+  sidebar: false
+news:
+  cran_dates: false
+navbar:
+  structure:
+    left: [intro, reference, articles, news, coverage, community]
+    right: [search, github, lightswitch]
+  components:
+    articles:
+      text: Articles
+      menu:
+        - text: Terminology
+          href: articles/terminology.html
+    coverage:
+      text: Coverage
+      href: https://app.codecov.io/gh/ultreia-io/ros.form.references
+    intro:
+      text: Getting started
+      href: articles/ros.form.references.html
+    community:
+      text: Community
+      menu:
+        - text: Contributing
+          href: CONTRIBUTING.html
+        - text: Maintainer guide
+          href: DEVELOPMENT.html
+        - text: Security policy
+          href: SECURITY.html
+        - text: Code of conduct
+          href: CODE_OF_CONDUCT.html
+articles:
+  - title: Guides
+    navbar: ~
+    contents: [ros.form.references, terminology]
+reference:
+  - title: Lookup configuration
+    contents: [ros_lookup_configuration, resolve_ros_lookups]
+  - title: Reference snapshots
+    contents: [prepare_ros_reference_snapshots, read_ros_references]
+  - title: Package
+    contents: [ros.form.references-package]
+
+footer:
+  structure:
+    left: [company, copyright, license]
+    right: built_with
+  components:
+    company: "[ultreia.io](https://ultreia.io/)"
+    copyright: "· © 2026"
+    license: "· [License: GPL-3](https://ultreia-io.github.io/ros.form.references/LICENSE)"
