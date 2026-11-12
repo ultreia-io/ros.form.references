@@ -1,0 +1,140 @@
+schema_version: "1.0.0"
+catalogues:
+  code_lists:
+    label: Code lists
+    source:
+      url: https://ros.ultreia.io/references/code_lists/
+      cache: ~/.cache/ros.form.references/code_lists
+    tables:
+      refs_admin.countries:
+        code: {matching: exact, ignore_case: true}
+      refs_admin.ports:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.reasons_days_lost:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.species:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery_config.gears:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.hull_material_types:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.fish_preservation_methods:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.fish_storage_types:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.waste_categories:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.waste_disposal_methods:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.branchline_storages:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.mitigation_devices:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.streamer_types:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.line_material_types:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.light_types:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.light_colours:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.hook_and_terminal_devices:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.bait_conditions:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.sampling_protocols:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.fate_types:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.fates:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.sampling_methods_for_catch_estimation:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.fish_processing_types:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.sampling_periods:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.individual_conditions:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.scars:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.predator_species:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.sampling_methods_for_sampling_collections:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.measurements:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.measurement_tools:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.sex:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.biological_materials:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.sample_preservation_methods:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.tag_types:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.gear_interactions:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.bait_types:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.dehooker_types:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.handling_methods:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.school_sighting_cues:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.school_detection_methods:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.fad_raft_designs:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.fad_tail_designs:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.surface_fishery_activities:
+        code: {matching: exact, ignore_case: true}
+      refs_admin.entities:
+        code: {matching: exact, ignore_case: true}
+      refs_data.data_sources_ro:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery_config.target_species:
+        code: {matching: exact, ignore_case: true}
+      refs_data.logical_responses:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.bait_species:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.offal_management_types:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.vessel_sections:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.weight_measurements:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.weight_measurement_tools:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.maturity_stages:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.depredation_sources:
+        code: {matching: exact, ignore_case: true}
+      refs_fishery.school_type_categories:
+        code: {matching: exact, ignore_case: true}
+      refs_biology.cetacean_species:
+        code: {matching: exact, ignore_case: true}
+  registries:
+    label: Registries
+    source:
+      url: https://ros.ultreia.io/references/registries/
+      cache: ~/.cache/ros.form.references/registries
+    tables:
+      ros_meta.focal_point:
+        full_name: {matching: name, ignore_case: true}
+        email: {matching: exact, ignore_case: true}
+      ros_meta.observer:
+        iotc_observer_identifier: {matching: exact, ignore_case: true}
+        full_name: {matching: name, ignore_case: true}
+      ros_meta.vessel:
+        vessel_name: {matching: name, ignore_case: true}
+        iotc_vessel_identifier: {matching: exact, ignore_case: true}
+        imo_identifier: {matching: exact, ignore_case: true}
+        ircs_identifier: {matching: exact, ignore_case: true}
+        registration_identifier: {matching: exact, ignore_case: true}
+      ros_meta.contact:
+        full_name: {matching: name, ignore_case: true}
