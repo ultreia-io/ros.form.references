@@ -15,9 +15,9 @@ URL: https://ultreia-io.github.io/ros.form.references/,
 BugReports: https://github.com/ultreia-io/ros.form.references/issues
 Encoding: UTF-8
 Depends: R (>= 4.1.0)
-Imports: form.references (== 0.3.0),
+Imports: form.model (>= 0.6.2), form.references (== 0.3.0),
     ros.form.model (== 0.4.0), digest, yaml
-Suggests: form.model (>= 0.6.2), knitr, pkgload, rmarkdown, testthat (>= 3.0.0)
+Suggests: knitr, pkgload, rmarkdown, testthat (>= 3.0.0)
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 Config/Needs/coverage: covr, xml2
