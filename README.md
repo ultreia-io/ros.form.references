@@ -18,11 +18,13 @@ Read the [Terminology](https://ultreia-io.github.io/ros.form.references/articles
 
 A reference catalogue lists tables of values used by consumers of ROS forms.
 
-This package configures the IOTC code lists and ROS registries, including their lookup settings and aliases.
+This package configures the IOTC code lists and ROS registries and their lookup settings.
+
+Aliases belong to the catalogues and are applied automatically by `form.references`.
 
 Consumers select form models and prepare the required tables once for reuse by exporters and validators.
 
-Snapshots preserve the downloaded CSV files and the lookup settings used to interpret them.
+Snapshots preserve the selected tables, their aliases, checksums and lookup settings for use without the original sources.
 
 ## Related packages
 

@@ -11,8 +11,6 @@ The files organize functions in one package namespace. You do not source each fi
 | `lookup-configuration.R`        | Read and freeze ROS lookup settings.                |
 | `reference-inputs.R`            | Load shared snapshots and their provenance.         |
 | `reference-snapshots.R`         | Retrieve and save model-selected reference tables.  |
-| `code-list-aliases.R`           | Read and check ROS code-list aliases.               |
-| `registry-aliases.R`            | Read and check ROS registry aliases.                |
 | `ros.form.references-package.R` | Provide package-level documentation.                |
 
 Public operations appear before internal helpers in each R file.
@@ -23,9 +21,9 @@ Public operations appear before internal helpers in each R file.
 
 `inst/references.private.example.yaml` shows authentication through an environment variable.
 
-The ROS adapter maps the official IOTC source to its published catalogue filename, `codelists`.
+Each configured source provides `catalogue.csv`, `catalogue.yaml` and its declared data and alias files.
 
-The two CSV files in `inst/` declare ROS aliases. Their targets must exist in the selected snapshot.
+Aliases belong to the source catalogues. Snapshots retain the mappings used by their selected lookups.
 
 ## Local verification
 
