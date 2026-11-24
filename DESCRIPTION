@@ -24,5 +24,5 @@ Config/Needs/coverage: covr, xml2
 Roxygen: list(markdown = TRUE)
 Config/Needs/website: pkgdown
 Config/roxygen2/version: 8.1.1
-Remotes: ultreia-io/form.references@0.4.0,
+Remotes: ultreia-io/form.references@develop,
     ultreia-io/ros.form.model@develop
